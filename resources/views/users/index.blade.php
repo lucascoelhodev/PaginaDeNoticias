@@ -270,19 +270,25 @@ Framework 5.5 and Up" />
                                     <div class="card-header">
                                         <div class="row">
                                             <div class="col-8">
-                                                <h4 class="card-title">Users</h4>
+                                                <h4 class="card-title">Usuários</h4>
                                             </div>
+                                            @if (session('error'))
+                                                <div class="alert alert-danger">
+                                                {{ session('error') }}
+                                                {{Session::forget('error')}}
+                                            </div>
+@endif
                                             <div class="col-6 text-right row ml-1">
                                                 <!-- <div class="col-md6">
                                                     <a href="#">
                                                         <button class="btn btn-primary">Adicionar Usuário</button>
                                                     </a>
                                                 </div> -->
-                                                <div class="col-md6">
+                                                <!-- <div class="col-md6">
                                                     <a href="{{route('role.index')}}">
                                                         <button class="btn btn-primary">Gerenciar Papéis</button>
                                                     </a>
-                                                </div>
+                                                </div> -->
 
                                             </div>
                                         </div>

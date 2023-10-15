@@ -26,6 +26,7 @@ Route::get('/home', 'App\Http\Controllers\NewsController@index')->name('home')->
 Route::get('/login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('login');
 Route::get('/pesquisar', 'App\Http\Controllers\SearchController@index');
 Route::get('/resultados', 'App\Http\Controllers\SearchController@resultados');
+Route::post('/remove/{id}', 'App\Http\Controllers\UserController@removeRole')->name('remove');
 
 
 

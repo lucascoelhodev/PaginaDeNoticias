@@ -6,6 +6,7 @@
         {!!Form::text("email","Email")->required()!!} 
     </div>
     <div class="col-md-6"> 
+        <label for="">Atribuir Papel</label>
     <select name="role_id">
         @foreach ($roles as $role)
             <option value="{{ $role->id }}" {{ auth()->user()->roles->contains('id', $role->id) ? 'selected' : '' }}>

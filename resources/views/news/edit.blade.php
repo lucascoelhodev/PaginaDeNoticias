@@ -3,5 +3,6 @@
 {!!Form::open()->put()->route('news.update',[$item->id])->fill($item) !!}
 @include('news\form')
 {!!Form::close()!!}
+
     @endsection
     
