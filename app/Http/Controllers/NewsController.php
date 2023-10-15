@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 // namespace App\Models;
+use Auth;
 use Illuminate\Http\Request;
 use App\Models\News;
-use Validator;
 class NewsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $data = News::orderBy('id')->get();
-
-        return view('news.index',compact('data'));
+    {   
+        $autor = Auth::user()->id;
+        $data = News::with('user')->where('user_id', $autor)->orderBy('created_at')->get();
+        return view('news.index',compact('data','autor'));
     }
 
     /**
@@ -22,8 +22,9 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('news.create');
-
+        $autor = Auth::user()->id;
+        // dd($autor);
+        return view('news.create', compact('autor'));
     }
 
     /**
@@ -33,10 +34,10 @@ class NewsController extends Controller
     {
         $this->validate($request,[
             'title'=>'required|unique:news,title',
-            'author'=>'required',
             'content'=>'required',
+            'user_id'=>'required',
         ]);
-        News::create($request->all());
+        $item = News::create($request->all());
         return redirect()->route('news.index');
     }
 
@@ -56,7 +57,8 @@ class NewsController extends Controller
     public function edit(string $id)
     {
         $item = News::findOrfail($id);
-        return view('news.edit',compact('item'));
+        $autor = Auth::user()->id;
+        return view('news.edit',compact('item','autor'));
 
     }
 

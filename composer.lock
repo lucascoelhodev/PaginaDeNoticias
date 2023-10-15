@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5abbaca65d2960f3ac775197595e561f",
+    "content-hash": "1bddb2f22ce2febc13e56cfb04e71566",
     "packages": [
         {
             "name": "brick/math",
@@ -969,6 +969,69 @@
                 }
             ],
             "time": "2023-08-27T10:19:19+00:00"
+        },
+        {
+            "name": "kodeine/laravel-acl",
+            "version": "2.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kodeine/laravel-acl.git",
+                "reference": "90c32b9f98dedf0e9c1a122f1e34d025d072522d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kodeine/laravel-acl/zipball/90c32b9f98dedf0e9c1a122f1e34d025d072522d",
+                "reference": "90c32b9f98dedf0e9c1a122f1e34d025d072522d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "doctrine/dbal": "^2.9",
+                "orchestra/testbench": "^5.0|^6.0",
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Kodeine\\Acl\\AclServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kodeine\\Acl\\": "src/Kodeine/Acl"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ahsen M.",
+                    "homepage": "https://github.com/kodeine",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Light-weight role-based permissions for Laravel 5 built in Auth system.",
+            "keywords": [
+                "acl",
+                "auth",
+                "eloquent",
+                "laravel",
+                "permissions",
+                "roles",
+                "security"
+            ],
+            "support": {
+                "issues": "https://github.com/kodeine/laravel-acl/issues",
+                "source": "https://github.com/kodeine/laravel-acl/tree/2.0.8"
+            },
+            "time": "2023-03-02T23:33:47+00:00"
         },
         {
             "name": "laravel-frontend-presets/white-dashboard",

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\PasswordRequest;
+use Kodeine\Acl\Models\Eloquent\Role;
+use Request;
 
 class ProfileController extends Controller
 {
@@ -14,10 +17,11 @@ class ProfileController extends Controller
      * @return \Illuminate\View\View
      */
     public function edit()
-    {
-        return view('profile.edit');
+    {   
+        $roles = Role::all();
+        return view('profile.edit',compact('roles'));
+        // return view('profile.edit',compact('roles'));
     }
-
     /**
      * Update the profile
      *
@@ -26,8 +30,14 @@ class ProfileController extends Controller
      */
     public function update(ProfileRequest $request)
     {
-        auth()->user()->update($request->all());
-
+        $user = auth()->user();
+        if($request->has('role_id')){
+            $role_id = $request->input('role_id');
+            $role = Role::find($role_id);
+            if ($role) {
+                $user->roles()->sync([$role->id]);
+            }
+        }
         return back()->withStatus(__('Profile successfully updated.'));
     }
 

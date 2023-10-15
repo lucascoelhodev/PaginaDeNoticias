@@ -1,4 +1,5 @@
 @extends('layouts.App',['pageSlug' => 'news.index'])
+
 @section('content')
 <div class="col-md6">
     <a href="{{route('news.create')}}">
@@ -9,8 +10,8 @@
         <thead>
             <tr>
                 <th>Titulo</th>
-                <th>Autor</th>
                 <th>Conteúdo</th>
+                <th>Autor</th>
                 <th>Editar</th>
                 <th>Visualizar</th>
                 <th>Deletar</th>
@@ -20,8 +21,8 @@
             @forelse($data as $item)
                 <tr>
                     <td>{{$item->title}}</td>
-                    <td>{{$item->author}}</td>
                     <td>{{$item->content}}</td>
+                    <td>{{$item->user->name}}</td>
                     <td><a href="{{route('news.edit', $item->id)}}">Editar</a></td>
                     <td><a href="{{route('news.show', $item->id)}}">Visualizar</a></td>
                     <form action="{{route('news.destroy',$item->id)}}" method="post">

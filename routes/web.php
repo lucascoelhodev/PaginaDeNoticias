@@ -19,15 +19,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\NewsController::class, 'index'])->name('home')->middleware('auth');
 Auth::routes();
-Route::get('user','App\Http\Controllers\UserController@add')->name('user.create');
 
-Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
-// Route::get('/login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('login');
-// Route::get('user','App\Http\Controllers\UserController@add')->name('user');
+Route::get('/home', 'App\Http\Controllers\NewsController@index')->name('home')->middleware('auth');
+Route::get('/login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('login');
+
 Route::resource('news', App\Http\Controllers\NewsController::class)->middleware('auth');
+Route::resource('users', App\Http\Controllers\UserController::class)->middleware('auth');
+Route::resource('role', App\Http\Controllers\RoleController::class)->middleware('auth');
+// Route::get('/edit/{id}', 'App\Http\Controllers\ProfileController@edit');
 
+// Route::resource('profile', App\Http\Controllers\ProfileController::class)->middleware('auth');
 // Route::get('adduser', 'App\Http\Controllers\UserController@viewAdd')->name('adduser');
 Route::group(['middleware' => 'auth'], function () {
 		Route::get('icons', ['as' => 'pages.icons', 'uses' => 'App\Http\Controllers\PageController@icons']);

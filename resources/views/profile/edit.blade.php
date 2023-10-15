@@ -11,20 +11,34 @@
                     <div class="card-body">
                             @csrf
                             @method('put')
-
                             @include('alerts.success')
-
                             <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                                <label>{{ __('Name') }}</label>
+                                <label>{{ __('Nome') }}</label>
                                 <input type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}">
                                 @include('alerts.feedback', ['field' => 'name'])
                             </div>
-
                             <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
-                                <label>{{ __('Email address') }}</label>
+                                <label>{{ __('Email') }}</label>
                                 <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email address') }}" value="{{ old('email', auth()->user()->email) }}">
                                 @include('alerts.feedback', ['field' => 'email'])
                             </div>
+                            @role('administrador')	
+                            <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
+                                <label>{{ __('Papel') }}</label>
+                                <select name="role_id">
+                                @php
+                                $userRole = auth()->user()->role;
+                                @endphp
+                                    @foreach ($roles as $role)
+                                    <option value="{{ $role->id }}" {{ auth()->user()->roles->contains('id', $role->id) ? 'selected' : '' }}>
+            {{ $role->name }}
+        </option>
+                                    @endforeach
+                                </select>
+                                @include('alerts.feedback', ['field' => 'email'])
+                            </div>
+                            @endrole
+                            
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-fill btn-primary">{{ __('Save') }}</button>

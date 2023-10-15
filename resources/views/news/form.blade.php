@@ -1,12 +1,13 @@
+
 <div class="row"> 
     <div class="col-md-4"> 
         {!!Form::text("title","Título")->required()!!} 
-    </div> 
-    <div class="col-md-4">
-        {!!Form::text("author","Autor")->required()!!} 
-    </div> 
+    </div>
+    <div class="col-md-4"> 
+        {!!Form::text("user_id","Autor")->value($autor)->required()->readonly()!!} 
+    </div>
     <div class="col-md-12"> 
-        {!!Form::text("content","Conteúdo")->required()!!} 
+        {!!Form::textarea("content","Conteúdo")->required()!!} 
     </div>
 </div>
 <button type="submit" class="btn btn-primary">Enviar</button>

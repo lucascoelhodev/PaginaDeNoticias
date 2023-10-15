@@ -6,17 +6,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Kodeine\Acl\Traits\HasRole;
 use Laravel\Sanctum\HasApiTokens;
+use Kodeine\Acl\Models\Eloquent\Role;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
-
+    use HasApiTokens, HasFactory, Notifiable, HasRole;
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
+    public function roles()
+    {
+    return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id');
+    }
     protected $fillable = [
         'name',
         'email',
