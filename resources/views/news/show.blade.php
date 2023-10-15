@@ -1,7 +1,8 @@
 @extends('layouts.App', ['pageSlug' => 'news.index'])
 @section('content')
-    <p>{{$item->title}}</p>
-    <p>{{$item->author}}</p>
-    <p>{{$item->content}}</p>
+    <h1>{{$item->title}}</h1>
+    
+    <p style="border: 2px solid #000; padding: 10px;">{{$item->content}}</p>
+    <h6><i>Escrito por {{$item->user->name}}</i></h6>
     @endsection
     

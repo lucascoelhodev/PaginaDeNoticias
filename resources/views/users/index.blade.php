@@ -107,11 +107,12 @@ Framework 5.5 and Up" />
                             <p>{{ __('Gerenciamento de usuário') }}</p>
                         </a>
                         </li>	
-@endrole	
-                        
+                        	
                         </ul>
                         </div>
                         </li>
+                        @endrole
+                 @role('desenvolvedor')       
                         <li>
                         <a href="{{ route('pages.icons') }}">
                         <i class="tim-icons icon-atom"></i>
@@ -154,10 +155,11 @@ Framework 5.5 and Up" />
                     <p>{{ __('Upgrade to PRO') }}</p>
                     </a>
                     </li>
+                    @endrole
                     </ul>
                     </div>
                     </div>
-
+                    
                     <div class="main-panel">
                     <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
                         <div class="container-fluid">
@@ -259,60 +261,6 @@ Framework 5.5 and Up" />
                             </div>
                         </div>
                     </div>
-
-                    <!-- <div class="modal modal-search fade" id="addUserModal" tabindex="-1" role="dialog"
-                aria-labelledby="searchModal" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <input type="text" class="form-control" id="inlineFormInputGroup"
-                                placeholder="{{ __('Criação de usuário') }}">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('Close') }}">
-                                <i class="tim-icons icon-simple-remove"></i>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form method="POST "action="{{ url('/users') }}">
-                                
-                                <div class="form-group">
-                                    <label for="nome">Nome</label>
-                                    <input type="text" class="form-control" id="nome" name="nome" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="senha">Senha</label>
-                                    <input type="password" class="form-control" id="senha" name="senha" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="perfil">Perfil</label>
-                                    <select name="perfil" id="perfil">
-                                        <option value="1">Administrador</option>
-                                        <option value="2">Publicador</option>
-                                        <option value="3">Visitante</option>
-                                    </select>
-                                </div>
-                            <button type="submit" class="btn btn-primary">Criar Usuário</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-                    <!-- <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog"
-                aria-labelledby="searchModal" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="SEARCH">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <i class="tim-icons icon-simple-remove"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
 
 
                     <div class="content">

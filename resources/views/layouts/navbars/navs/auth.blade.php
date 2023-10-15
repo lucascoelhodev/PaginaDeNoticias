@@ -79,10 +79,15 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="{{ __('SEARCH') }}">
-                <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('Close') }}">
+            <button type="button btn btn-sucess" class="close" data-dismiss="modal" aria-label="{{ __('Close') }}">
                     <i class="tim-icons icon-simple-remove"></i>
               </button>
+            <form class="w-100" action="/resultados" method="get">
+            @csrf
+            <input class="w-75" type="text" name="search" placeholder="Pesquisar">
+            <button type="submit" class="btn btn-success">Pesquisar</button>
+            </form>
+                
             </div>
         </div>
     </div>

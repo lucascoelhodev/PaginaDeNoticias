@@ -24,14 +24,15 @@ Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\NewsController@index')->name('home')->middleware('auth');
 Route::get('/login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('login');
+Route::get('/pesquisar', 'App\Http\Controllers\SearchController@index');
+Route::get('/resultados', 'App\Http\Controllers\SearchController@resultados');
+
+
 
 Route::resource('news', App\Http\Controllers\NewsController::class)->middleware('auth');
 Route::resource('users', App\Http\Controllers\UserController::class)->middleware('auth');
 Route::resource('role', App\Http\Controllers\RoleController::class)->middleware('auth');
-// Route::get('/edit/{id}', 'App\Http\Controllers\ProfileController@edit');
 
-// Route::resource('profile', App\Http\Controllers\ProfileController::class)->middleware('auth');
-// Route::get('adduser', 'App\Http\Controllers\UserController@viewAdd')->name('adduser');
 Route::group(['middleware' => 'auth'], function () {
 		Route::get('icons', ['as' => 'pages.icons', 'uses' => 'App\Http\Controllers\PageController@icons']);
 		Route::get('maps', ['as' => 'pages.maps', 'uses' => 'App\Http\Controllers\PageController@maps']);
