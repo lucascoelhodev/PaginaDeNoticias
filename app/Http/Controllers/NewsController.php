@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 // namespace App\Models;
+use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
 use App\Models\News;
@@ -22,7 +23,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        $autor = Auth::user()->id;
+        $autor = Auth::user()->name;
         // dd($autor);
         return view('news.create', compact('autor'));
     }
@@ -32,12 +33,23 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
+
+        $name = $request->input('name');
+        
+        $name_id = User::where('name',$name)->first();
+        if ($name_id) {
+            $userId = $name_id->id;
+            // Faça algo com $userId, como exibir ou usar em outra parte do seu código
+        }
         $this->validate($request,[
             'title'=>'required|unique:news,title',
             'content'=>'required',
-            'user_id'=>'required',
         ]);
-        $item = News::create($request->all());
+        $item = News::create([
+            'title' => $request->input('title'),
+            'user_id' => $userId,
+            'content' => $request->input('content')
+        ]);
         return redirect()->route('news.index');
     }
 

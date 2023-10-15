@@ -4,7 +4,7 @@
         {!!Form::text("title","Título")->required()!!} 
     </div>
     <div class="col-md-4"> 
-        {!!Form::text("user_id","Autor")->value($autor)->required()->readonly()!!} 
+        {!!Form::text("name","Autor")->value($autor)->required()->readonly()!!} 
     </div>
     <div class="col-md-12"> 
         {!!Form::textarea("content","Conteúdo")->required()!!} 

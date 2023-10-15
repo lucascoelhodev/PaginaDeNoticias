@@ -16,7 +16,7 @@
             <li>
                 <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
                     <i class="fab fa-laravel" ></i>
-                    <span class="nav-link-text" >{{ __('Laravel Examples') }}</span>
+                    <span class="nav-link-text" >{{ __('Usuários') }}</span>
                     <b class="caret mt-1"></b>
                 </a>
 
@@ -38,10 +38,12 @@
                             <p>{{ __('Gerenciamento de usuário') }}</p>
                         </a>
                         </li>	
-                        @endrole	
+            @endrole
+                       	
                     </ul>
                 </div>
             </li>
+            @role('desenvolvedor')
             <li @if ($pageSlug == 'icons') class="active " @endif>
                 <a href="{{ route('pages.icons') }}">
                     <i class="tim-icons icon-atom"></i>
@@ -84,6 +86,7 @@
                     <p>{{ __('Upgrade to PRO') }}</p>
                 </a>
             </li>
+            @endrole
         </ul>
     </div>
 </div>

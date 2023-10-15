@@ -3,7 +3,7 @@
     <div class="col-md-4"> 
         {!!Form::text("name","Nome")->required()!!} 
     </div>  
-    <div class="col-md-10"> 
+    <div class="col-md-12"> 
         {!!Form::textarea("description","Descrição")->required()!!} 
     </div>
 </div>

@@ -330,11 +330,11 @@ Framework 5.5 and Up" />
                                                         <button class="btn btn-primary">Adicionar Usuário</button>
                                                     </a>
                                                 </div> -->
-                                                <!-- <div class="col-md6">
+                                                <div class="col-md6">
                                                     <a href="{{route('role.index')}}">
                                                         <button class="btn btn-primary">Gerenciar Papéis</button>
                                                     </a>
-                                                </div> -->
+                                                </div>
 
                                             </div>
                                         </div>
